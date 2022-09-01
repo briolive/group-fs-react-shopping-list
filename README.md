@@ -26,6 +26,6 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 - [x] items should appear alphabetically
 - [x] add purchased button 
 - [x] add onclick to purchased button that removes purchased button and item is shown as purchased
-- [] onclick calls a function that updates the database to change 'purchased' to true (default will be false)
+- [x] onclick calls a function that updates the database to change 'purchased' to true (default will be false)
 - [] in fetchItems, use a conditional to determine how the items are appended based whether 'purchased' is true or false
 

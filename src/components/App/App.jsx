@@ -62,6 +62,11 @@ function App() {
         });
     };
 
+    const markAsPurchased = (inputId) => {
+        console.log('in markAsPurchased!');
+    }
+
+
     return (
         <div className="App">
             <Header/>
@@ -106,10 +111,12 @@ function App() {
                 <br />
                 <br />
                 <Grid container spacing={2}>
-                {itemList.map((item) => {
+                {itemList.map((item) => { 
                     return  <Grid item xs={12} sm={6} md={4} key={item.id}>
                                 {item.name} / {item.quantity} {item.unit}
-                                <IconButton color="primary">
+                                <IconButton 
+                                    color="primary" 
+                                    onClick={(event) => markAsPurchased(item.id)}>
                                     <AddShoppingCartIcon />
                                 </IconButton>
                                 {/* <Button size="small" variant="outlined" color="primary">Purchased</Button> */}

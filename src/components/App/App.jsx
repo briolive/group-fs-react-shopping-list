@@ -5,6 +5,9 @@ import Header from '../Header/Header.jsx'
 import './App.css';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import IconButton from '@mui/material/IconButton';
 
 
 
@@ -103,10 +106,16 @@ function App() {
                 <br />
                 <br />
                 <Grid container spacing={2}>
-                {itemList.map((item) => {  return <li key={item.id}>
-                {item.name} / {item.quantity} {item.unit}
-                </li>
-  })  
+                {itemList.map((item) => {
+                    return  <Grid item xs={12} sm={6} md={4} key={item.id}>
+                                {item.name} / {item.quantity} {item.unit}
+                                <IconButton color="primary">
+                                    <AddShoppingCartIcon />
+                                </IconButton>
+                                {/* <Button size="small" variant="outlined" color="primary">Purchased</Button> */}
+                            </Grid>
+                
+                })  
 }
 </Grid>
             </main>

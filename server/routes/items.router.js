@@ -7,7 +7,7 @@ const pool = require('../modules/pool.js');
 router.get('/', (req, res) => {
     // When you fetch all things in these GET routes, strongly encourage ORDER BY
     // so that things always come back in a consistent order 
-    const sqlText = `SELECT * FROM groceries ORDER BY name;`;
+    const sqlText = `SELECT * FROM "groceries" ORDER BY "name";`;
     pool.query(sqlText)
         .then((result) => {
             console.log(`Got stuff back from the database`, result);
@@ -23,6 +23,18 @@ router.get('/', (req, res) => {
 
 
 // POST
+router.post('/', (req, res) => {
+    console.log('POST req.body', req.body);
+    let sqlText = `INSERT INTO "groceries" ("name", "quantity", "unit")
+    VALUES ($1, $2, $3);`
+    pool.query(sqlText, [req.body.name, req.body.quantity, req.body.unit])
+    .then((results) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    });
+});
 
 
 

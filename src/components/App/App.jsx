@@ -38,7 +38,26 @@ function App() {
 
     const addItem = (event) => {
         event.preventDefault();
-    }
+        axios({
+            method: 'POST',
+            url: '/items',
+            data: {
+                name: itemName,
+                quantity: itemQuantity,
+                unit: itemUnit,
+            }
+        }).then(response => {
+            // clear form inputs
+            setItemName('');
+            setItemQuantity('');
+            setItemUnit('');
+            // fetch items from the server
+            fetchItems();
+        }).catch(error => {
+            console.log(error);
+            alert('Something went wrong in POST!');
+        });
+    };
 
     return (
         <div className="App">

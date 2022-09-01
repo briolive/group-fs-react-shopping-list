@@ -98,14 +98,14 @@ function App() {
                 />
             <br />
             <br />
-            <button>Add Grocery Item</button>
+            <button onClick={addItem}>Add Grocery Item</button>
             </form>
                 <br />
                 <br />
                 <Grid container spacing={2}>
-            {itemList.map((item) => {  return <li key={item.id}>
- {item.name} / {item.quantity} {item.unit}
-  </li>
+                {itemList.map((item) => {  return <li key={item.id}>
+                {item.name} / {item.quantity} {item.unit}
+                </li>
   })  
 }
 </Grid>

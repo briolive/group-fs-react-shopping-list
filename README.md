@@ -21,6 +21,6 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 -[x] create item name, quantity, and unit variables with useState
 -[x] create useEffect function with the GET function to populate the grocery list with items from the database on page load
 -[x] create GET and POST in the function in app.jsx
--[ ] create a form for name, quantity, and unit for the items within the app.jsx function return
+-[x] create a form for name, quantity, and unit for the items within the app.jsx function return
 -[x] create empty list for grocery items 
 

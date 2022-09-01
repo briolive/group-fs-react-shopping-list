@@ -25,7 +25,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 -[x] create empty list for grocery items 
 - [x] items should appear alphabetically
 - [x] add purchased button 
-- [] add onclick to purchased button that removes purchased button and item is shown as purchased
+- [x] add onclick to purchased button that removes purchased button and item is shown as purchased
 - [] onclick calls a function that updates the database to change 'purchased' to true (default will be false)
 - [] in fetchItems, use a conditional to determine how the items are appended based whether 'purchased' is true or false
 

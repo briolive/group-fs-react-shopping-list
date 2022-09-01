@@ -36,6 +36,22 @@ router.post('/', (req, res) => {
     });
 });
 
+//PUT request to update data base
+router.put('/:id', (req, res) => {
+    console.log(req.params.id);
+    let sqlText = `UPDATE "groceries"
+                    SET "purchased" = true
+                    WHERE id = $1;
+                  `
+    pool.query(sqlText, [req.params.id])
+    .then((results) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    });
+});
+
 
 
 

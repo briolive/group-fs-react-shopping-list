@@ -11,6 +11,7 @@ import IconButton from '@mui/material/IconButton';
 
 
 
+
 function App() {
 
     const [itemList, setItemList] = useState([]);
@@ -64,7 +65,18 @@ function App() {
 
     const markAsPurchased = (inputId) => {
         console.log('in markAsPurchased!');
-    }
+        console.log('inputID', inputId);
+        axios({
+            method: 'PUT',
+            url: `/items/${inputId}`
+        }).then(response => {
+            console.log('made it here!')
+            fetchItems();
+        }).catch(error => {
+            console.log(error);
+            alert('something went wrong in PUT');
+        });
+    };
 
 
     return (
@@ -112,7 +124,8 @@ function App() {
                 <br />
                 <Grid container spacing={2}>
                 {itemList.map((item) => { 
-                    return  <Grid item xs={12} sm={6} md={4} key={item.id}>
+                    if(item.purchased === false){
+                        return  <Grid item xs={12} sm={6} md={4} key={item.id}>
                                 {item.name} / {item.quantity} {item.unit}
                                 <IconButton 
                                     color="primary" 
@@ -121,7 +134,18 @@ function App() {
                                 </IconButton>
                                 {/* <Button size="small" variant="outlined" color="primary">Purchased</Button> */}
                             </Grid>
-                
+                    }else if(item.purchased === true) {
+                        return <Grid item xs={12} sm={6} md={4} key={item.id} style={{textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>
+                            {item.name} / {item.quantity} {item.unit}
+                                
+                                {/* <IconButton 
+                                    color="primary" 
+                                    onClick={(event) => markAsPurchased(item.id)}>
+                                    <AddShoppingCartIcon />
+                                </IconButton> */}
+                                {/* <Button size="small" variant="outlined" color="primary">Purchased</Button> */}
+                                </Grid>
+                    }
                 })  
 }
 </Grid>
